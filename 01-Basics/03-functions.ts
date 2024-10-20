@@ -1,4 +1,4 @@
-// Specify sunftion return type by type name after function name 
+// Specify function return type by type name after function name 
 function greet() : void						// 'void' returns nothing
 {
 	console.log("Hello World");
