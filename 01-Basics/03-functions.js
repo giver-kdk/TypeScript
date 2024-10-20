@@ -1,5 +1,5 @@
 "use strict";
-// Specify sunftion return type by type name after function name 
+// Specify function return type by type name after function name 
 function greet() {
     console.log("Hello World");
 }
