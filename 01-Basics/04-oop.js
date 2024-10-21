@@ -117,4 +117,5 @@ Factory.count = 0;
 let f1 = new Factory();
 let f2 = new Factory();
 let f3 = new Factory();
+// Access static member (property or method) using class name
 console.log("Static Member object count: " + Factory.count);
