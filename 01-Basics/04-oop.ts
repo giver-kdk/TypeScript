@@ -24,18 +24,18 @@ console.log("Class Object Info: ", person1.age);
 class Vehicle {
 	// Define class variable with type
 	private name: string;
-	private speed: number;
+	#speed: number;									// Another way to create private varibale is to use '#' prefix
 	// Constructor function doesn't have return type
 	public constructor(name: string, speed: number){
 		this.name = name;
-		this.speed = speed;
+		this.#speed = speed;
 	}
 	// Class method doesn't need to use 'function' keyword
 	public getName(): string{
 		return this.name;
 	}
 	public getSpeed(): number{
-		return this.speed;
+		return this.#speed;
 	}
 }
 // Creating object from class
