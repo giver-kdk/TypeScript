@@ -3,7 +3,13 @@ function greet() : void						// 'void' returns nothing
 {
 	console.log("Hello World");
 }
+
+function sayHi()							// Returns 'void' if return type not specified
+{
+	console.log("Hi");
+}
 greet();
+sayHi();
 
 
 // Function with typed parameter

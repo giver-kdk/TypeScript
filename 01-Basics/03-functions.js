@@ -3,7 +3,11 @@
 function greet() {
     console.log("Hello World");
 }
+function sayHi() {
+    console.log("Hi");
+}
 greet();
+sayHi();
 // Function with typed parameter
 function sum(num1, num2) {
     return num1 + num2;
