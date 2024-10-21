@@ -20,3 +20,10 @@
 		- "tsc.ps1" Path: C:\Users%USERNAME%\AppData\Roaming\npm\tsc.ps1
 
 	- Typescript was made by Microsoft, so it is some what combination of C# and JavaScript.
+	- When there is error in Typescript code, it will show errors but also continue compiling that code into JS
+		- We can't stop typescript from not compiling the error-ful code, it can only show warnings
+
+	- "tsconfig.json" NOTE:
+		- This file can tell in which platform oru app runs (Browser, OS, etc.)
+		- We can set the output compiled directory (Eg: To 'dist' folder)
+		- We can use 'sourceMap' property to direct the Browser to '.ts' file during error instead of '.js' file

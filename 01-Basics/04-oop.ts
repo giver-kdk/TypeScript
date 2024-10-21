@@ -64,7 +64,7 @@ class Circle{
 }
 let cir1: Circle = new Circle(5);
 console.log("Getter-Setter old Radius: " + cir1.rad);		// Using Getter
-cir1.rad = 15;											// Using Setter  
+cir1.rad = 15;												// Using Setter  
 console.log("Getter-Setter new Radius: " + cir1.rad);
 
 
@@ -115,6 +115,7 @@ console.log("Interfce inherited rectangle area: " + r1.getArea());
 
 
 // ***** Inheritance with Class *****
+// In typescript, interface can be used as datatype
 // We need to use 'extends' keyword for inheriting class
 class Square extends Rectangle{
 	public constructor(lenght: number)
