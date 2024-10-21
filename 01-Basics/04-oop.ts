@@ -143,3 +143,19 @@ class College extends University{
 
 let col1: College = new College("My College");
 console.log("Abstract Class college name: " + col1.getName());
+
+
+// ***** Static Members *****
+class Factory{
+	public static count: number = 0;
+
+	public constructor(){
+		// Access the static member inside non-static method using Class Name
+		Factory.count++;
+	}
+}
+
+let f1: Factory = new Factory();
+let f2: Factory = new Factory();
+let f3: Factory = new Factory();
+console.log("Static Member object count: " + Factory.count);
