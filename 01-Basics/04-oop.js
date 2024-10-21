@@ -1,4 +1,16 @@
 "use strict";
+var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
+    if (kind === "m") throw new TypeError("Private method is not writable");
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
+    return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
+};
+var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+};
+var _Vehicle_speed, _Circle_radius;
 // ***** Class *****
 class Person {
     // Constructor function doesn't have return type
@@ -20,21 +32,44 @@ console.log("Class Object Info: ", person1.age);
 class Vehicle {
     // Constructor function doesn't have return type
     constructor(name, speed) {
+        _Vehicle_speed.set(this, void 0); // Another way to create private varibale is to use '#' prefix
         this.name = name;
-        this.speed = speed;
+        __classPrivateFieldSet(this, _Vehicle_speed, speed, "f");
     }
     // Class method doesn't need to use 'function' keyword
     getName() {
         return this.name;
     }
     getSpeed() {
-        return this.speed;
+        return __classPrivateFieldGet(this, _Vehicle_speed, "f");
     }
 }
+_Vehicle_speed = new WeakMap();
 // Creating object from class
 let car1 = new Vehicle("Lambo", 210);
 console.log("Object with Access Modifier Info: ", car1.getName()); // Can't access the private vehicle directly
 console.log("Object with Access Modifier Info: ", car1.getSpeed());
+// ***** Getters and Setters *****
+class Circle {
+    constructor(radius) {
+        // Private variable using '#'
+        _Circle_radius.set(this, void 0);
+        __classPrivateFieldSet(this, _Circle_radius, radius, "f");
+    }
+    // Getter method
+    get rad() {
+        return __classPrivateFieldGet(this, _Circle_radius, "f");
+    }
+    // Setter method
+    set rad(radius) {
+        __classPrivateFieldSet(this, _Circle_radius, radius, "f");
+    }
+}
+_Circle_radius = new WeakMap();
+let cir1 = new Circle(5);
+console.log("Getter-Setter old Radius: " + cir1.rad); // Using Getter
+cir1.rad = 15; // Using Setter  
+console.log("Getter-Setter new Radius: " + cir1.rad);
 // ***** Parameter Properties *****
 // Properties of class can be defined in class constructor parameter (But, requires access modifier)
 class Employee {

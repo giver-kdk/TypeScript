@@ -44,6 +44,30 @@ console.log("Object with Access Modifier Info: ", car1.getName());					// Can't 
 console.log("Object with Access Modifier Info: ", car1.getSpeed());
 
 
+// ***** Getters and Setters *****
+class Circle{
+	// Private variable using '#'
+	#radius: number;
+
+	public constructor(radius: number){
+		this.#radius = radius;
+	}
+
+	// Getter method
+	get rad(): number{									// Can be used like in C# to assign value in private variable
+		return this.#radius;
+	}
+	// Setter method
+	set rad(radius: number){
+		this.#radius = radius;
+	}
+}
+let cir1: Circle = new Circle(5);
+console.log("Getter-Setter old Radius: " + cir1.rad);		// Using Getter
+cir1.rad = 15;											// Using Setter  
+console.log("Getter-Setter new Radius: " + cir1.rad);
+
+
 // ***** Parameter Properties *****
 // Properties of class can be defined in class constructor parameter (But, requires access modifier)
 class Employee{
